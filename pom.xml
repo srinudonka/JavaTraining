@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sailaja</groupId>
-	<artifactId>spring_second_project</artifactId>
+	<artifactId>JavaTraining</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	 <properties>
@@ -66,13 +66,13 @@
                     <version>2.4</version>
                     <configuration>
                         <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>spring_second_project</warName>
+                        <warName>JavaTraining</warName>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
                     </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
  
-        <finalName>spring_second_project</finalName>
+        <finalName>JavaTraining</finalName>
 	</build>
 </project>
