@@ -8,6 +8,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -17,10 +18,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@PropertySource("classpath:db.properties")
+@PropertySource("classpath:resources/db.properties")
 @EnableTransactionManagement
 @EnableWebMvc
-@ComponentScan(basePackages = "com.sailaja.spring_second_project")
+@ComponentScans(value = { 
+	      @ComponentScan("com.sailaja.spring_second_project.dao"),
+	      @ComponentScan("com.sailaja.spring_second_project.service") 
+	    })
 public class HomeConfigure {
 
 	@Autowired
@@ -45,6 +49,7 @@ public class HomeConfigure {
 		Properties prop = new Properties();
 		prop.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 		prop.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+		prop.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
 		lsfb.setHibernateProperties(prop);
 		return lsfb;
 
