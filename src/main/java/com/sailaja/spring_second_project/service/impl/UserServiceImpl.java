@@ -1,14 +1,13 @@
 package com.sailaja.spring_second_project.service.impl;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.sailaja.spring_second_project.domain.Address;
 import com.sailaja.spring_second_project.domain.User;
 import com.sailaja.spring_second_project.service.UserService;
 
-@Service
-@Qualifier("userServiceImpl")
+@Service("userServiceImpl")
+
 public class UserServiceImpl implements UserService {
 
 	@Override

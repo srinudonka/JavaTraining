@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,10 +22,11 @@ public class UserController {
 	UserService userService;
 	
 	@GetMapping("/get")
-	public @ResponseBody String getString() throws IOException{
+	public  String getString() throws IOException{
 		
 		ObjectMapper Obj = new ObjectMapper(); 
-		return Obj.writeValueAsString(userService.getUser());
+		User user = userService.getUser();
+		return Obj.writeValueAsString(user);
 	}
 
 }
