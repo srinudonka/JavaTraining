@@ -6,9 +6,10 @@ import com.sailaja.spring_second_project.domain.Address;
 import com.sailaja.spring_second_project.domain.User;
 import com.sailaja.spring_second_project.service.UserService;
 
-@Service("userServiceImpl")
-
+@Service
 public class UserServiceImpl implements UserService {
+	
+
 
 	@Override
 	public User getUser() {
