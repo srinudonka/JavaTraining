@@ -16,11 +16,11 @@ public class CityServiceImpl implements CityService{
 	@Autowired
 	private CityDao cityDao;
 	
-	@Transactional
+	@Transactional("handleTransaction")
 	@Override
 	public String addCity(City city) {
-		cityDao.addCity(city);
-		return null;
+		
+		return cityDao.addCity(city);
 		
 	}
 
@@ -29,5 +29,19 @@ public class CityServiceImpl implements CityService{
 	public List<City> getListOfCities() {
 		// TODO Auto-generated method stub
 		return cityDao.getListOfCities();
+	}
+
+	@Transactional("handleTransaction")
+	@Override
+	public City getCityById(int id) {
+		// TODO Auto-generated method stub
+		return cityDao.getCityById(id);
+	}
+
+	@Transactional("handleTransaction")
+	@Override
+	public String updateRecordById(City city) {
+		// TODO Auto-generated method stub
+		return cityDao.updateRecordById(city);
 	}
 }
